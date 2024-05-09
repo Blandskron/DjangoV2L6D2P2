@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Listado de Lecciones{% endblock %}
+
+{% block content %}
+    <h1>Lista de Lecciones</h1>
+    <ul>
+        {% for leccion in lecciones %}
+            <li>
+                <a href="{% url 'detalle_leccion' leccion.id %}">{{ leccion.titulo }}</a>
+                <a href="{% url 'editar_leccion' leccion.id %}">Editar</a>
+                <a href="{% url 'eliminar_leccion' leccion.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_leccion' %}">Crear Nueva Lección</a>
+{% endblock  %}
+
+{% block css %}
+    <style>
+        body {
+            background-color: pink;
+        }
+    </style>
+{% endblock %}

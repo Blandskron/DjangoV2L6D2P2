@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle Leccion{% endblock %}
+
+{% block content %}
+    <h1>Detalle de la Lección: {{ leccion.titulo }}</h1>
+    <p>Descripción: {{ leccion.descripcion }}</p>
+    <p>Fecha de Publicación: {{ leccion.fecha_publicacion }}</p>
+    <p>Duración (minutos): {{ leccion.duracion_minutos }}</p>
+    {% if leccion.archivo %}
+        <p>Archivo: <a href="{{ leccion.archivo.url }}">{{ leccion.archivo.name }}</a></p>
+    {% endif %}
+    <a href="{% url 'editar_leccion' leccion.id %}">Editar</a>
+    <a href="{% url 'eliminar_leccion' leccion.id %}">Eliminar</a>
+{% endblock  %}

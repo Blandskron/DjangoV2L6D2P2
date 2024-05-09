@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Lección{% endblock %}
+
+{% block content %}
+<h1>Crear leccion</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.titulo.id_for_label }}">Título:</label>
+        {{ form.titulo }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.descripcion.id_for_label }}">Descripción:</label>
+        {{ form.descripcion }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.fecha_publicacion.id_for_label }}">Fecha de Publicación:</label>
+        {{ form.fecha_publicacion }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.duracion_minutos.id_for_label }}">Duración en Minutos:</label>
+        {{ form.duracion_minutos }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.archivo.id_for_label }}">Archivo:</label>
+        {{ form.archivo }}
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+{% endblock %}
+
+{% block css %}
+    <style>
+        body {
+            background-color: gray;
+        }
+        
+        form {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+{% endblock %}
